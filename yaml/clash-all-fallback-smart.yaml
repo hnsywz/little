@@ -9,7 +9,7 @@ proxy-providers:
   Subs Check:
     url: http://10.0.0.8:8299/download/sub?target=Clash
     type: http
-    interval: 86400
+    interval: 240
     health-check:
       enable: true
       url: https://www.gstatic.com/generate_204
@@ -129,6 +129,8 @@ default: &default
     - 新加坡-故转
     - 韩国-故转
     - 美国-故转
+    - 法国-故转
+    - 德国-故转
     - 英国-故转
     - 其他-故转
     - 拒绝
@@ -179,7 +181,7 @@ proxy-groups:
   - name: 所有-智选
     type: smart
     include-all: true
-    policy-priority: "香港:1.2;牛逼:0.8"
+    policy-priority: "香港:1.2;Subs Check:0.8"
     uselightgbm: true
     collectdata: true
     interval: 300
@@ -203,7 +205,7 @@ proxy-groups:
   - name: 香港-智选
     type: smart
     include-all: true
-    policy-priority: "牛逼:0.8"
+    policy-priority: "Subs Check:0.8"
     uselightgbm: true
     collectdata: true
     interval: 300
@@ -225,7 +227,7 @@ proxy-groups:
   - name: 台湾-智选
     type: smart
     include-all: true
-    policy-priority: "牛逼:0.8"
+    policy-priority: "Subs Check:0.8"
     uselightgbm: true
     collectdata: true
     interval: 300
@@ -247,7 +249,7 @@ proxy-groups:
   - name: 日本-智选
     type: smart
     include-all: true
-    policy-priority: "牛逼:0.8"
+    policy-priority: "Subs Check:0.8"
     uselightgbm: true
     collectdata: true
     interval: 300
@@ -269,7 +271,7 @@ proxy-groups:
   - name: 新加坡-智选
     type: smart
     include-all: true
-    policy-priority: "牛逼:0.8"
+    policy-priority: "Subs Check:0.8"
     uselightgbm: true
     collectdata: true
     interval: 300
@@ -291,7 +293,7 @@ proxy-groups:
   - name: 韩国-智选
     type: smart
     include-all: true
-    policy-priority: "牛逼:0.8"
+    policy-priority: "Subs Check:0.8"
     uselightgbm: true
     collectdata: true
     interval: 300
@@ -313,12 +315,55 @@ proxy-groups:
   - name: 美国-智选
     type: smart
     include-all: true
-    policy-priority: "牛逼:0.8"
+    policy-priority: "Subs Check:0.8"
     uselightgbm: true
     collectdata: true
     interval: 300
     filter: "(?=.*(广美|美|US|纽约|波特兰|达拉斯|俄勒|凤凰城|费利蒙|拉斯|洛杉|圣何塞|圣克拉|西雅|芝加|🇺🇸|United States)).*$"
 
+  # 德国组
+  - name: 德国-故转
+    type: fallback
+    interval: 300
+    lazy: false
+    proxies:
+      - 德国-手选
+      - 德国-智选
+  - name: 德国-手选
+    type: select
+    include-all: true
+    filter: "(?=.*(德国|德|DE|Germany)).*$"
+  - name: 德国-智选
+    type: smart
+    include-all: true
+    policy-priority: "Subs Check:0.8"
+    uselightgbm: true
+    collectdata: true
+    interval: 300
+    filter: "(?=.*(德国|德|DE|Germany)).*$"
+
+  # 法国组
+
+  - name: 法国-故转
+    type: fallback
+    interval: 300
+    lazy: false
+    proxies:
+      - 法国-手选
+      - 法国-智选
+  - name: 法国-手选
+    type: select
+    include-all: true
+    filter: "(?=.*(法国|法|巴黎|FR|Francef|fr|Paris)).*$"
+  - name: 法国-智选
+    type: smart
+    include-all: true
+    policy-priority: "Subs Check:0.8"
+    uselightgbm: true
+    collectdata: true
+    interval: 300
+    filter: "(?=.*(法国|法|巴黎|FR|Francef|fr|Paris)).*$"
+ 
   # 英国组
 
   - name: 英国-故转
@@ -335,7 +380,7 @@ proxy-groups:
   - name: 英国-智选
     type: smart
     include-all: true
-    policy-priority: "牛逼:0.8"
+    policy-priority: "Subs Check:0.8"
     uselightgbm: true
     collectdata: true
     interval: 300
@@ -357,7 +402,7 @@ proxy-groups:
   - name: 其他-智选
     type: smart
     include-all: true
-    policy-priority: "牛逼:0.8"
+    policy-priority: "Subs Check:0.8"
     uselightgbm: true
     collectdata: true
     interval: 300
@@ -473,6 +518,7 @@ rule-providers:
   Google / Domain: {<<: *domain, url: "https://gh-proxy.com/github.com/metacubex/meta-rules-dat/raw/refs/heads/meta/geo/geosite/google.mrs"}  
   Google / IP: {<<: *ip, url: "https://gh-proxy.com/github.com/metacubex/meta-rules-dat/raw/refs/heads/meta/geo/geoip/google.mrs"}
 # GateFireWall / Domain: {<<: *domain, url: "https://gh-proxy.com/github.com/metacubex/meta-rules-dat/raw/refs/heads/meta/geo/geosite/gfw.mrs"}
+
 
 
 
