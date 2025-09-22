@@ -6,55 +6,95 @@
 
 proxy-providers:
 
-  Subs Check:
-    url: http://10.0.0.8:8299/download/sub?target=Clash
+  火烧云:
+    url: "机场订阅地址"
     type: http
-    interval: 240
-    health-check:
-      enable: true
-      url: https://www.gstatic.com/generate_204
-      interval: 300
-    proxy: 直连
-  
-  wenpblog:
-    url: https://www.wenpblog.com/vpn/getClashNodes?token=7dcb42a93309dd86
-    type: http
-    interval: 240
+    interval: 86400
     health-check:
       enable: true
       url: https://www.gstatic.com/generate_204
       interval: 300
     proxy: 直连 
-  
-  v2rayse.com:
-    url: https://raw.githubusercontent.com/free18/v2ray/refs/heads/main/c.yaml
+    
+  冰云:
+    url: "机场订阅地址"
     type: http
-    interval: 240
+    interval: 86400
     health-check:
       enable: true
       url: https://www.gstatic.com/generate_204
       interval: 300
-    proxy: 直连
+    proxy: 直连    
 
-  fs.v2rayse.com:
-    url: https://fs.v2rayse.com/share/20250922/lozhrfimka.yaml
+  小牛:
+    url: "机场订阅地址"
     type: http
-    interval: 240
+    interval: 86400
     health-check:
       enable: true
       url: https://www.gstatic.com/generate_204
       interval: 300
-    proxy: 直连  
+    proxy: 直连    
+
+  硅谷:
+    url: "机场订阅地址"
+    type: http
+    interval: 86400
+    health-check:
+      enable: true
+      url: https://www.gstatic.com/generate_204
+      interval: 300
+    proxy: 直连      
   
-  tiancheng:
-    url: https://baidu.sosorg.nyc.mn/sub?uuid=01996f00-696b-dd6b-2008-25d93b7e1b4a&encryption=none&security=tls&sni=marielees.shop&type=ws&host=marielees.shop&path=%2Fsnippets%3Fip%3Dkr.tp50000.netlib.re%253A50000%26nat64%3D6to4
+  无界:
+    url: "机场订阅地址"
     type: http
-    interval: 240
+    interval: 86400
     health-check:
       enable: true
       url: https://www.gstatic.com/generate_204
       interval: 300
-    proxy: 直连
+    proxy: 直连   
+   
+  猫耳:
+    url: "机场订阅地址"
+    type: http
+    interval: 86400
+    health-check:
+      enable: true
+      url: https://www.gstatic.com/generate_204
+      interval: 300
+    proxy: 直连   
+
+  快猫:
+    url: "机场订阅地址"
+    type: http
+    interval: 86400
+    health-check:
+      enable: true
+      url: https://www.gstatic.com/generate_204
+      interval: 300
+    proxy: 直连 
+    
+  BestVPN:
+    url: "机场订阅地址"
+    type: http
+    interval: 86400
+    health-check:
+      enable: true
+      url: https://www.gstatic.com/generate_204
+      interval: 300
+    proxy: 直连     
+
+  牛逼:
+    url: "机场订阅地址"
+    type: http
+    interval: 86400
+    health-check:
+      enable: true
+      url: https://www.gstatic.com/generate_204
+      interval: 300
+    proxy: 直连      
 
 proxies:
   - {name: 直连, type: direct}
@@ -558,6 +598,7 @@ rule-providers:
   Google / Domain: {<<: *domain, url: "https://gh-proxy.com/github.com/metacubex/meta-rules-dat/raw/refs/heads/meta/geo/geosite/google.mrs"}  
   Google / IP: {<<: *ip, url: "https://gh-proxy.com/github.com/metacubex/meta-rules-dat/raw/refs/heads/meta/geo/geoip/google.mrs"}
 # GateFireWall / Domain: {<<: *domain, url: "https://gh-proxy.com/github.com/metacubex/meta-rules-dat/raw/refs/heads/meta/geo/geosite/gfw.mrs"}
+
 
 
 
